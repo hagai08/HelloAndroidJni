@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
    //     Log.i("number is", String.valueOf(number));
 
        //   ((TextView) findViewById(R.id.jni_msgView)).setText();
-    //
+    ///
 
     }
 
