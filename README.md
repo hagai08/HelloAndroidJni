@@ -1,4 +1,5 @@
 # HelloAndroidJni
 
-Android app that runs C code using experimental gradle plugin
+I've used the following guide to first run this Project :
 
+https://codelabs.developers.google.com/codelabs/android-studio-jni
