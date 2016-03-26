@@ -12,7 +12,13 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
+
+ //   Map<Integer,Long> fiboMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +35,43 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-      //  ((TextView) findViewById(R.id.jni_msgView)).setText(getMsgFromJni());
 
-  //      EditText inputNumber = (EditText) findViewById(R.id.inputNumber);
 
-    //    int number = Integer.parseInt(inputNumber.getText().toString());
+      //  fiboMap = new HashMap<Integer,Long>();
 
-   //     Log.i("number is", String.valueOf(number));
-
-       //   ((TextView) findViewById(R.id.jni_msgView)).setText();
-    ///
 
     }
+
+  /**
+   * Calculate Fibonacci using java code
+
+    public void calculateFibonacci(View view){
+
+        EditText inputNumber = (EditText) findViewById(R.id.inputNumber);
+        int number = Integer.parseInt(inputNumber.getText().toString());
+
+        int result = fibonacci(number);
+
+        ((TextView) findViewById(R.id.textViewResult)).setText(String.valueOf(result));
+    }*/
+
+
+    /**
+     * Calculate Fibonacci using C code with JNI
+     * @param view
+     */
+    public void calculateFibonacci(View view){
+
+        EditText inputNumber = (EditText) findViewById(R.id.inputNumber);
+        int number = Integer.parseInt(inputNumber.getText().toString());
+
+        String result = fibonacciJni(number);
+
+        ((TextView) findViewById(R.id.textViewResult)).setText(result);
+
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,12 +99,8 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("hello-android-jni");
     }
 
-    public native String getMsgFromJni();
+    public native String fibonacciJni(int n);
 
-  //   public native int Fibonacci(int n);
-
-
-    //implement fibonacci function in C
 
     public static int fibonacci(int n){
         if (n == 0 ){
@@ -86,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
             return (fibonacci(n-1) + fibonacci(n-2));
         }
     }
+
+
+
 
 
 }

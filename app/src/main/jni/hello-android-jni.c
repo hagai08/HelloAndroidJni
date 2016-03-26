@@ -1,25 +1,34 @@
 #include <jni.h>
+#include <stdio.h>
 
 JNIEXPORT jstring JNICALL
-Java_com_example_hagai08_helloandroidjni_MainActivity_getMsgFromJni(JNIEnv *env, jobject instance) {
+Java_com_example_hagai08_helloandroidjni_MainActivity_fibonacciJni(JNIEnv *env, jobject instance, int num) {
 
     // TODO
 
 
-    return (*env)->NewStringUTF(env, "Hello From Jni");
+
+
+    int result = fibonacci(num);
+
+
+    char str[15];
+    sprintf(str, "%d", result);
+
+    return (*env)->NewStringUTF(env, str);
 
 
 
 
 
 }
-/*
-int Fibonacci(int n)
+
+int fibonacci(int n)
 {
     if ( n == 0 )
         return 0;
     else if ( n == 1 )
         return 1;
     else
-        return ( Fibonacci(n-1) + Fibonacci(n-2) );
+        return ( fibonacci(n-1) + fibonacci(n-2) );
 }
